@@ -33,4 +33,5 @@ group :test do
   gem 'wdm', '~> 0.0.3'
   gem 'guard-spork', '1.2.0'
   gem 'spork', '0.9.2'
+  gem 'factory_girl_rails', '4.1.0'
 end

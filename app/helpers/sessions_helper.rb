@@ -31,4 +31,17 @@ module SessionsHelper
   def current_user?(user)
     user == current_user
   end
+  
+  # 9.2.3 Friendly forwarding
+  # metodos utilizados para armazenar (a pagina desejada pelo usuario), fazer algo necesssário no meio disto,
+  # e depois redirecionar um usuario para a pagina original (armazenada)
+  def redirect_back_or(default)
+    redirect_to(session[:return_to] || default)
+    session.delete(:return_to)
+  end
+
+  def store_location
+    session[:return_to] = request.url
+  end
+  
 end

@@ -17,6 +17,15 @@ module SessionsHelper
     !current_user.nil?
   end
   
+  #usuario esta logado ou não
+  def signed_in_user
+    unless signed_in?
+      store_location
+      redirect_to signin_url, notice: "Please sign in."
+    end
+  end
+  
+  
   #atribui o usuario para a variavel de instancia @current_user
   def current_user=(user)
     @current_user = user
